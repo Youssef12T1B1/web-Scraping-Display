@@ -1,0 +1,36 @@
+<div class="divider"></div>
+
+<div class="row mt-5">
+  <div class="col-md-10 m-auto">
+    <div class="card card-body text-center">
+      <form action="" method="post">
+        <table class="table">
+          <thead class="thead">
+            <tr>
+              <th>title</th>
+              <th>url</th>
+              <th>image</th>
+              <th>Delivery</th>
+              <th>price</th>
+              <th>shipping</th>
+              <th>specs</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for (var i=0 ; i< products.length;++i){%>
+            <tr>
+              <td><%= products[i].title %></td>
+              <td><a href="<%= products[i].url %>"> Product link</a></td>
+              <td><a href="<%= products[i].image %>"> Product Img link</a></td>
+              <td><%= products[i].Delivery %></td>
+              <td><%= products[i].price %></td>
+              <td><%= products[i].shipping %></td>
+              <td><%= products[i].specs %></td>
+            </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </form>
+    </div>
+  </div>
+</div>
