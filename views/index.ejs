@@ -12,7 +12,6 @@
               <th>image</th>
               <th>Delivery</th>
               <th>price</th>
-              <th>shipping</th>
               <th>specs</th>
             </tr>
           </thead>
@@ -20,12 +19,15 @@
             <% for (var i=0 ; i< products.length;++i){%>
             <tr>
               <td><%= products[i].title %></td>
-              <td><a href="<%= products[i].url %>"> Product link</a></td>
-              <td><a href="<%= products[i].image %>"> Product Img link</a></td>
+              <td> <a href="<%= products[i].url %>"> <i class="fa-solid fa-link"></i></a></td>
+              <td><img id="ProductImg" src="<%= products[i].image %>"></img></td>
               <td><%= products[i].Delivery %></td>
-              <td><%= products[i].price %></td>
-              <td><%= products[i].shipping %></td>
-              <td><%= products[i].specs %></td>
+              <td><%= products[i].price %> €</td>
+              <td>
+                <span> <%= products[i].specs[0]["Procesador"] %></span>
+               <span>   <%= products[i].specs[0]["Sistema operativo"] %></span></br>
+               <span> RAM: <%= products[i].specs[0]["Tamaño memoria RAM"] %> </span>          
+              </td>
             </tr>
             <% } %>
           </tbody>
