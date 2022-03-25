@@ -4,6 +4,7 @@
   <div class="col-md-10 m-auto">
     <div class="card card-body text-center">
       <form action="" method="post">
+        <h3> Total Product for this Category is : <%= products[0].ProductCount%></h3>
         <table class="table">
           <thead class="thead">
             <tr>
@@ -21,10 +22,20 @@
               <td><%= products[i].title %></td>
               <td> <a href="<%= products[i].url %>"> <i class="fa-solid fa-link"></i></a></td>
               <td><img id="ProductImg" src="<%= products[i].image %>"></img></td>
-              <td><%= products[i].Delivery %></td>
+              <% if( products[i].Delivery.includes("Entrega")){%>
+
+                <%
+                const d1 = new Date(products[i].Delivery.split(' ')[1].split('/').reverse().join('-'))
+                const d2 = new Date(products[i].Delivery.split(' ')[3].split('/').reverse().join('-'))
+                %>
+              <td><%= (d2 - d1) /1000/60/60/24 %> Days</td>
+              <% } else { %>
+                <td><%= products[i].Delivery %></td>
+                <% } %>
+
               <td><%= products[i].price %> €</td>
               <td>
-                <span> <%= products[i].specs[0]["Procesador"] %></span>
+                <span> <%= products[i].specs[0]["Procesador"] %></span></br>
                <span>   <%= products[i].specs[0]["Sistema operativo"] %></span></br>
                <span> RAM: <%= products[i].specs[0]["Tamaño memoria RAM"] %> </span>          
               </td>

@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const Product = require("../models/product");
-
 router.get("/", (req, res) => {
   Product.find()
     .select("-__v")
@@ -17,7 +16,6 @@ router.get("/", (req, res) => {
 
 router.get("/:category", (req, res) => {
   const category = req.params.category;
-  console.log(category);
   Product.find({ Category: category })
     .select("-__v")
     .exec()
