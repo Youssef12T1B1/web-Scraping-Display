@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const Product = require("../models/product");
-const moment = require("moment");
 
 router.get("/", (req, res) => {
   Product.find()
@@ -16,4 +15,18 @@ router.get("/", (req, res) => {
     });
 });
 
+router.get("/:category", (req, res) => {
+  const category = req.params.category;
+  console.log(category);
+  Product.find({ Category: category })
+    .select("-__v")
+    .exec()
+    .then((response) => {
+      res.render("category", { products: response });
+    })
+
+    .catch((err) => {
+      res.send(err);
+    });
+});
 module.exports = router;

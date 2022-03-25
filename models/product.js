@@ -15,6 +15,8 @@ const productSchema = new mongoose.Schema(
     },
     Delivery: String,
     price: Number,
+    ProductCount: Number,
+    Category: String,
     shipping: String,
     specs: [],
   },

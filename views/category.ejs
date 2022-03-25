@@ -1,0 +1,38 @@
+<div class="divider"></div>
+
+<div class="row mt-5">
+  <div class="col-md-10 m-auto">
+    <div class="card card-body text-center">
+      <form action="" method="post">
+        <table class="table">
+          <thead class="thead">
+            <tr>
+              <th>title</th>
+              <th>url</th>
+              <th>image</th>
+              <th>Delivery</th>
+              <th>price</th>
+              <th>specs</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for (var i=0 ; i< products.length;++i){%>
+            <tr>
+              <td><%= products[i].title %></td>
+              <td> <a href="<%= products[i].url %>"> <i class="fa-solid fa-link"></i></a></td>
+              <td><img id="ProductImg" src="<%= products[i].image %>"></img></td>
+              <td><%= products[i].Delivery %></td>
+              <td><%= products[i].price %> €</td>
+              <td>
+                <span> <%= products[i].specs[0]["Procesador"] %></span>
+               <span>   <%= products[i].specs[0]["Sistema operativo"] %></span></br>
+               <span> RAM: <%= products[i].specs[0]["Tamaño memoria RAM"] %> </span>          
+              </td>
+            </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </form>
+    </div>
+  </div>
+</div>
